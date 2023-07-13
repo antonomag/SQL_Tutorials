@@ -118,8 +118,8 @@ CREATE TABLE Bookings(
 --@block
 INSERT INTO Bookings(guest_id, room_id, check_in)
 VALUES 
-	(2, 1, 25.03.2023),
-	(3, 2, 25.03.2023);
+	(2, 1, '20230325 15:00:00 GMT'),
+	(3, 2, '20230325 15:00:00 GMT');
 
 --@block Join for Rooms a user has booked
 SELECT
@@ -129,3 +129,13 @@ SELECT
 FROM Bookings
 INNER JOIN Rooms ON Rooms.owner_id =guest_id
 WHERE guest_id = 1;
+
+--@block JOIN Guest who stayed in a room
+SELECT
+	room_id,
+	guest_id,
+	email,
+	bio
+FROM Bookings
+INNER JOIN Users ON Users.id = guest_id
+WHERE room_id = 2;

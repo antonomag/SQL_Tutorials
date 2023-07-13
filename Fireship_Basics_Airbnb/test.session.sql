@@ -1,4 +1,3 @@
-Hallo
 -- Youtube tutorial SQL
 --@block
 CREATE TABLE Users(

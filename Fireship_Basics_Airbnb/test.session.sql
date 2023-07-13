@@ -118,8 +118,8 @@ CREATE TABLE Bookings(
 --@block
 INSERT INTO Bookings(guest_id, room_id, check_in)
 VALUES 
-	(2, 1, '20230325 15:00:00 GMT'),
-	(3, 2, '20230325 15:00:00 GMT');
+	(2, 1, '20230125 '),
+	(3, 2, '20230125');
 
 --@block Join for Rooms a user has booked
 SELECT

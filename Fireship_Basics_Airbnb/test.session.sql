@@ -114,3 +114,18 @@ CREATE TABLE Bookings(
     FOREIGN KEY (guest_id) REFERENCES Users(id),
     FOREIGN KEY (room_id) REFERENCES Rooms (id)
 );
+
+--@block
+INSERT INTO Bookings(guest_id, room_id, check_in)
+VALUES 
+	(2, 1, 25.03.2023),
+	(3, 2, 25.03.2023);
+
+--@block Join for Rooms a user has booked
+SELECT
+	guest_id,
+	street,
+	check_in
+FROM Bookings
+INNER JOIN Rooms ON Rooms.owner_id =guest_id
+WHERE guest_id = 1;

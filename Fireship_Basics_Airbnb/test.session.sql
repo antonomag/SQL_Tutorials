@@ -118,8 +118,8 @@ CREATE TABLE Bookings(
 --@block
 INSERT INTO Bookings(guest_id, room_id, check_in)
 VALUES 
-	(2, 1, '20230125 '),
-	(3, 2, '20230125');
+	(2, 1, "20230125 15:00:00"),
+	(3, 2, "20230126 16:00:00");
 
 --@block Join for Rooms a user has booked
 SELECT
@@ -139,3 +139,12 @@ SELECT
 FROM Bookings
 INNER JOIN Users ON Users.id = guest_id
 WHERE room_id = 2;
+
+--@block
+SET SESSION sql_mode = 'NO_ENGINE_SUBSTITUTION';
+SET GLOBAL sql_mode = 'NO_ENGINE_SUBSTITUTION';
+
+select @@GLOBAL.sql_mode; -- and
+select @@SESSION.sql_mode;
+
+SET SESSION sql_mode = 'ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';

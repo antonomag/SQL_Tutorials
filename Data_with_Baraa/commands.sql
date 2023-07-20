@@ -1,147 +1,140 @@
---@block
+--@block show table
 SELECT * 
 FROM customers;
 
---@block
+--@block show table
 SELECT *
 FROM orders;
 
---@block
+--@block use database
 USE db_sql_tutorial
 
---@block
+--@block show table
 SELECT * 
 FROM CUSTOMERS;
 
---@block
+--@block show table
 SELECT * 
 FROM orders;
 
---@block
+--@block show particular columns in a table
 SELECT
     first_name,
     country
 FROM customers;
 
---@block
+--@block show one column in a table
 SELECT country
 FROM customers;
 
---@block
+--@block show one column in a table wo duplicates
 SELECT DISTINCT
     country
 FROM customers;
 
---@block
+--@block show one table and sort it ascending
 SELECT *
 FROM customers
 ORDER BY score ASC;
 
---@block
+--@block show one table and sort it descenden
 SELECT *
 FROM customers
 ORDER BY score DESC;
 
---@block
+--@block sort by two columns
 SELECT *
 FROM customers
 ORDER BY country ASC, score DESC;
 
---@block
+--@block filter one value, op =
 SELECT *
 FROM customers
 WHERE country = 'Germany';
 
---@block
+--@block filter one value, op >
 SELECT *
 FROM customers
 WHERE score > 500;
 
---@block
+--@block filter one value, op <
 SELECT *
 FROM customers
 WHERE score < 500;
 
---@block
+--@block filter one value, op <=
 SELECT *
 FROM customers
 WHERE score <= 500;
 
---@block
+--@block filter one value, op >=
 SELECT *
 FROM customers
 WHERE score >= 500;
 
---@block
+--@block filter one value, op !=
 SELECT *
 FROM customers
 WHERE country != 'Germany';
 
---@block
+--@block filter one value, op <>
 SELECT *
 FROM customers
 WHERE country <> 'Germany';
 
---@block
+--@block filter two values, op AND
 SELECT *
 FROM customers
 WHERE country = 'Germany' AND score < 400;
 
---@block
+--@block filter two values, op OR
 SELECT *
 FROM customers
 WHERE country = 'Germany' OR score < 400;
 
---@block
+--@block filter one value, op wher not
 SELECT *
 FROM customers
 WHERE NOT score < 400;
 
---@block
+--@block op between
 SELECT *
 FROM customers
 WHERE score BETWEEN 100 AND 500;
 
---@block
+--@block alternative between
 SELECT *
 FROM customers
 WHERE score >= 100 AND score <=500;
 
---@block
+--@block op in
 SELECT *
 FROM customers
 WHERE customer_id in (1,2,5);
 
---@block
+--@block filter by conditions
 SELECT *
 FROM customers
 WHERE customer_id =1
 OR customer_id = 2
 OR customer_id = 5;
 
---@block
-SELECT *
-FROM customers
-WHERE customer_id =1
-OR customer_id = 2
-OR customer_id = 5;
-
---@block
+--@block op LIKE beginning with
 SELECT *
 FROM customers
 WHERE first_name LIKE 'M%'
 
---@block
+--@block op LIKE ending with
 SELECT *
 FROM customers
 WHERE first_name LIKE '%n'
 
---@block
+--@block op LIKE containint
 SELECT *
 FROM customers
 WHERE first_name LIKE '%r%'
 
---@block
+--@block op LIKE containing specific place
 SELECT *
 FROM customers
 WHERE first_name LIKE '__r%'

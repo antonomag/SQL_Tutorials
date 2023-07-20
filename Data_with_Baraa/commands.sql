@@ -134,22 +134,22 @@ SELECT *
 FROM customers
 WHERE first_name LIKE '%r%'
 
---@block op LIKE containing specific place
+--@block op LIKE containing in specific place
 SELECT *
 FROM customers
 WHERE first_name LIKE '__r%'
 
---@block
+--@block show table appending database name
 SELECT 
     customers.customer_id
 FROM customers;
 
---@block
+--@block show table using aliases
 SELECT 
     c.customer_id
 FROM customers AS c;
 
---@block
+--@block inner join with aliases
 SELECT
     c.customer_id,
     c.first_name,
@@ -159,7 +159,7 @@ FROM customers AS c
 INNER JOIN orders AS o
 ON  c.customer_id = o.customer_id;
 
---@block
+--@block left joint with aliases
 SELECT
     c.customer_id,
     c.first_name,
@@ -169,7 +169,7 @@ FROM customers AS c
 LEFT JOIN orders AS o
 ON  c.customer_id = o.customer_id;
 
---@block
+--@block right join with aliases
 SELECT
     c.customer_id,
     c.first_name,
@@ -179,14 +179,14 @@ FROM customers AS c
 RIGHT JOIN orders AS o
 ON  c.customer_id = o.customer_id;
 
---@block
+--@block show table
 select * from customers;
 
---@block
+--@block show table
 select * from orders;
 
 --@block
---FULL JOIN Workaround
+--FULL JOIN Workaround for mysql with union
 SELECT
     c.customer_id,
     c.first_name,
@@ -257,7 +257,7 @@ SELECT
     emp_country
 FROM employees;
 
---@block check
+--@block check this one, same problem as with excel
 SELECT 
     last_name,
     first_name,
@@ -305,38 +305,38 @@ FROM orders;
 SELECT MAX(order_date) AS max_order_date
 FROM orders;
 
---@block
+--@block CONCAT function
 SELECT
     CONCAT(first_name, ' ', last_name)
 FROM customers;
 
---@block
+--@block UPPer and LOWER functions
 SELECT
 UPPER(first_name) AS upper_first_name,
 LOWER(first_name) AS lower_first_name
 FROM customers;
 
---@block TRIM
+--@block TRIM function
 SELECT
 TRIM(last_name) AS clean_last_name,
 LENGTH(last_name) AS len_last_name,
 LENGTH(TRIM(last_name)) AS clean_len_last_name
 FROM customers;
 
---@block TRIM
+--@block TRIM function
 SELECT
 TRIM(last_name) AS clean_last_name,
 LENGTH(last_name) AS len_last_name,
 LENGTH(TRIM(last_name)) AS clean_len_last_name
 FROM customers;
 
---@block
+--@block SUBSTRING function
 SELECT
 last_name,
 SUBSTRING(last_name, 2,3) AS sub_last_name
 FROM customers;
 
---@block
+--@block COUNT function
 SELECT 
     COUNT (*) AS total_customers,
     country
